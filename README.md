@@ -126,4 +126,3 @@ Built by Vishal Kashyap · LinkedIn
 =======
 # ResumeRooms
 3D-styled, privacy-first resume ATS checker. Upload a PDF/DOCX, get scored by four reviewers (ATS, recruiter, hiring manager, HR), then walk through suggestion, study and company-themed mock-interview rooms. Pure HTML/CSS/JS, runs 100% in the browser.
->>>>>>> 7bff64f39ce915fd985a2999ee6fc90cea9eb257
