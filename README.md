@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ResumeRooms 🟦
 
 Walk your resume through the hiring process. ResumeRooms is a browser-based, 3D-styled career tool: upload a resume, get an ATS-style score from four different "reviewers", fix what's wrong, study what's missing, and rehearse in a mock-interview room themed like the company you're targeting.
@@ -122,3 +123,7 @@ MIT. Add a LICENSE file to the repo.
 Author
 
 Built by Vishal Kashyap · LinkedIn
+=======
+# ResumeRooms
+3D-styled, privacy-first resume ATS checker. Upload a PDF/DOCX, get scored by four reviewers (ATS, recruiter, hiring manager, HR), then walk through suggestion, study and company-themed mock-interview rooms. Pure HTML/CSS/JS, runs 100% in the browser.
+>>>>>>> 7bff64f39ce915fd985a2999ee6fc90cea9eb257
