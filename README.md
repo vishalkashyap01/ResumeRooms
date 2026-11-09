@@ -1,128 +1,115 @@
-<<<<<<< HEAD
-ResumeRooms 🟦
+<div align="center">
 
-Walk your resume through the hiring process. ResumeRooms is a browser-based, 3D-styled career tool: upload a resume, get an ATS-style score from four different "reviewers", fix what's wrong, study what's missing, and rehearse in a mock-interview room themed like the company you're targeting.
+<img src="assets/hero.svg" alt="ResumeRooms: animated forest banner with the tagline Resume to Offer, room by room" width="100%">
 
-Single static file. No backend, no build step, no sign-up. Your resume text never leaves your browser.
+### Walk your resume through the hiring process 🌿
 
-<!-- Add a screenshot or GIF here: docs/demo.gif -->
-Why this exists
+[![Live demo](https://img.shields.io/badge/live_demo-open_ResumeRooms-2b6b45?style=for-the-badge)](https://vishalkashyap01.github.io/ResumeRooms/)
+[![Privacy](https://img.shields.io/badge/privacy-runs_in_your_browser-6fb77f?style=for-the-badge)](#-privacy--honesty)
+[![Backend](https://img.shields.io/badge/backend-none-a8d070?style=for-the-badge)](#-how-it-works-behind-the-scenes)
 
-Most free ATS checkers stop at a number. Candidates then have to guess what to fix, what to learn, and how to practise. ResumeRooms turns that into a guided path through four rooms:
+**[🌱 Open the app →](https://vishalkashyap01.github.io/ResumeRooms/)**
 
-Room	What happens
-01 · ATS Lab	Pick a target role, optionally paste a job description, upload a resume (PDF, DOCX, TXT) or paste text. Get a scorecard.
-02 · Suggestion Room	Prioritised fixes: contact details, missing keywords, section order, weak phrases, repeated words, typos, STAR-method gaps.
-03 · Study Room	Topic cards built from your missing keywords, each with an official-docs link and YouTube search links.
-04 · Mock Test Room	Choose a company office (Nvidia, Google, Amazon, Microsoft, TCS/Infosys, Other). Timed questions: resume deep-dives, technical, behavioural, company-style.
+</div>
 
-A small candidate avatar walks between rooms as you scroll.
+<img src="assets/divider.svg" alt="" width="100%">
 
-Features
-Four-reviewer scoring: ATS parser, technical recruiter, hiring manager and HR each score separately, then combine into one total.
-Role or JD matching: six built-in role keyword banks, or paste a job description and its top terms become the keyword list.
-Actionable fixes with severity (high / medium / low) instead of just a number.
-Resume deep-dive questions generated from skills actually found in your resume.
-3D feel without a 3D engine: CSS perspective floors, mouse-tilt scenes, scroll parallax, scroll-reveal and a scroll-driven avatar.
-Light and dark mode via prefers-color-scheme; respects prefers-reduced-motion.
-Private by design: all parsing and scoring run client-side.
-How it works
+## 🌱 What is ResumeRooms?
+
+Upload your resume once. A recruiter, a tech manager, HR and an ATS each score it from their own point of view. Then walk into three more rooms: prioritised fixes, a study plan built from your gaps, and a mock interview in the office of the company you are targeting.
+
+Everything runs in your browser. Nothing is uploaded.
+
+<img src="assets/rooms.svg" alt="Trail through the four rooms: ATS Lab, Suggestions, Study, Mock Test" width="100%">
+
+## 🚪 The four rooms
+
+| Room | What you do | What you get |
+|---|---|---|
+| **1 · ATS Lab** | Pick a target role, optionally paste a job description, then drop a PDF, DOCX or TXT (or paste the text) | A scorecard from four separate reviewers |
+| **2 · Suggestion Room** | Read your scan results | Prioritised fixes for contact details, keywords, structure, wording and STAR impact |
+| **3 · Study Room** | Follow the topic list | Topics drawn from the keywords your resume is missing (or the role's core list), with official docs and a YouTube search for each |
+| **4 · Mock Test Room** | Choose a company office and start | Questions mixing resume deep-dives, technical, behavioural and company-style themes |
+
+Every room has its own anchor (`#r1` to `#r4`), so you can deep-link straight to one.
+
+## 👀 Four reviewers, four lenses
+
+A recruiter, a hiring manager, HR and an ATS each look for different things, so ResumeRooms scores them separately.
+
+| Reviewer | Typically cares about |
+|---|---|
+| Recruiter | A fast scan: clear role fit, relevant titles, easy-to-read layout |
+| Tech manager | Skill depth, projects, evidence of impact |
+| HR | Completeness, consistency, professional presentation |
+| ATS | Parseable structure, standard sections, keyword match |
+
+## ✍️ The STAR bullet pattern
+
+Illustrative example, not real data:
+
+| | |
+|---|---|
+| **Before** | Responsible for sales reports. |
+| **After** | Built a weekly Power BI sales dashboard (Action) for a 12-person team (Situation/Task), cutting reporting time by 40% (Result). |
+
+Formula: **strong verb + what you did + tool + measurable result.** Only claim numbers you can defend in an interview.
+
+## 🔒 Privacy & honesty
+
+- **In-browser only.** Your resume text stays on your device.
+- **Heuristic scores.** Scores come from keyword, structure and wording checks. This is *not* a real vendor ATS, and every ATS parses differently.
+- **Original questions.** The mock questions are written around commonly discussed themes. They are not scraped from Glassdoor or Reddit.
+
+## ⚙️ How it works behind the scenes
+
+```mermaid
 flowchart LR
-  A[Upload PDF / DOCX / TXT<br/>or paste text] --> B[Text extraction<br/>pdf.js · mammoth.js]
-  B --> C[analyze()]
-  J[Role keyword bank<br/>or pasted JD] --> C
-  C --> D[Four reviewer scores]
-  C --> E[Fix list]
-  C --> F[Missing keywords]
-  D --> G[ATS Lab scorecard]
-  E --> H[Suggestion Room]
-  F --> I[Study Room topics]
-  F --> K[Mock Test questions]
-Scoring model
+    A[Resume file or pasted text] --> B[Text extracted in the browser]
+    B --> C[Heuristic checks<br/>keywords · structure · wording]
+    C --> D[Four reviewer scorecards]
+    D --> E[Prioritised fixes]
+    C --> F[Missing keywords]
+    F --> G[Study topics + doc links]
+    F --> H[Mock interview questions]
+```
 
-analyze() runs these checks on the extracted text:
+<!-- Confirm this diagram and list the exact libraries used for PDF/DOCX parsing before publishing. -->
 
-Keywords: hits and misses against the role bank (or JD terms)
-Contact: email, phone, LinkedIn, GitHub/portfolio (required for technical roles)
-Structure: Summary, Skills, Experience, Projects, Education headings and their order
-Impact: share of bullet-like lines with numbers; strong action verbs; weak phrases ("responsible for", "worked on")
-Language: doubled words, lowercase "i", common typos, odd spacing, repeated words and repeated bullet openers
-Length: word count against a typical fresher range
-Reviewer	Weight in total	Looks mostly at
-ATS parser	35%	Keyword coverage, standard sections, parsable contact info
-Technical recruiter	20%	Contact completeness, summary, quantified impact, length
-Hiring manager	25%	Keyword depth, projects/GitHub, metrics, skills section
-HR	20%	Structure, grammar and consistency, professionalism
-Tech stack
-HTML, CSS, vanilla JavaScript (single file)
-pdf.js for PDF text extraction
-mammoth.js for DOCX text extraction
-Libraries loaded from cdnjs; no npm install required
-Getting started
-bash
-git clone https://github.com/<your-username>/resume-rooms.git
-cd resume-rooms
+A static front end with no server and no database: the page does the parsing, scoring and question selection itself, which is why nothing needs to be uploaded.
 
-# Option 1: just open it
-open index.html            # macOS  (Windows: start index.html, Linux: xdg-open index.html)
+## 🌍 Nature-friendly by design
 
-# Option 2: serve locally
-python -m http.server 8000 # then visit http://localhost:8000
-Deploy for free
-GitHub Pages: Settings → Pages → deploy from main branch, root folder.
-Netlify / Vercel / Cloudflare Pages: drag and drop the folder.
-Project structure
-resume-rooms/
-├── index.html   # entire app: markup, styles, scripts
-└── README.md
+- **Light footprint.** A static site on GitHub Pages needs no always-on server.
+- **No uploads.** Your data never travels, so there is nothing to store or clean up.
+- **Calm palette and gentle motion.** Greens, sky and sunlight, with subtle animation only.
 
-Key places to edit inside index.html:
+## 🚀 Run it locally
 
-Name	Purpose
-ROLES	Keyword bank per role. Add a role and it appears in the dropdown.
-analyze()	Scoring and fix-generation logic.
-D	Topic → official docs URL + short study note.
-Q, BH, CQ	Role, behavioural and company-style question banks.
-CO	Company names and accent colours for the mock room.
-Known limitations (read this before trusting a score)
+```bash
+git clone https://github.com/vishalkashyap01/ResumeRooms.git
+cd ResumeRooms
+python -m http.server 8000
+# then open http://localhost:8000
+```
 
-The score is a heuristic, not a real ATS. Workday, Greenhouse, Taleo and others parse differently and publish no scoring formula. Treat the number as a checklist, not a verdict.
-Keyword matching is literal. "ML" will not match "machine learning" yet.
-Grammar checks are rule-based and catch only simple issues.
-Mock questions are original, written around commonly discussed interview themes. They are not scraped from Glassdoor or Reddit; the page links to search results for real candidate reports.
-YouTube links are search results, not hand-picked videos. Sort by recent uploads and view count.
-PDF extraction can scramble multi-column layouts, and scanned/image-only PDFs have no text. Paste text instead. Legacy .doc is not supported.
+## 🗺️ Ideas for next
 
-Roadmap
- Synonym- and embedding-aware keyword matching
- LLM-powered STAR rewrites through a small backend (FastAPI/Flask)
- Server-side parsing (pdfplumber, python-docx) for more reliable extraction
- True 3D rooms with Three.js
- Licensed or user-submitted interview question database
- Save progress and score history
- Voice-based mock interviews with feedback
-Privacy
+- [ ] Add links to real candidate interview reports in the Mock Test Room
+- [ ] Export the scorecard and fixes as a PDF
+- [ ] More target roles and company offices
+- [ ] Compare two resume versions side by side
 
-Resume text is processed entirely in your browser. There is no server, no analytics and no storage in this version. If you add an LLM backend later, tell users clearly what is sent where.
+## 🤝 Contributing
 
-Contributing
+Issues and pull requests are welcome. For bigger changes, open an issue first so we can talk it through.
 
-Issues and pull requests are welcome. Good first contributions: new role keyword banks, more company question sets, better typo and grammar rules, accessibility improvements.
+<img src="assets/divider.svg" alt="" width="100%">
 
-Fork the repo and create a branch: git checkout -b feature/your-change
-Make your change and test it in a browser with a few sample resumes
-Open a pull request describing what changed and why
-Acknowledgements
+<div align="center">
 
-Visual direction (dark navy, glowing blue square, terrain, scroll storytelling) was inspired by the public look of bluesqx.com. No code, images or branding were copied.
+**Made by VISHAL with LOVE** 🌿
 
-License
+⭐ If ResumeRooms helped you, plant a star on the repo.
 
-MIT. Add a LICENSE file to the repo.
-
-Author
-
-Built by Vishal Kashyap · LinkedIn
-=======
-# ResumeRooms
-3D-styled, privacy-first resume ATS checker. Upload a PDF/DOCX, get scored by four reviewers (ATS, recruiter, hiring manager, HR), then walk through suggestion, study and company-themed mock-interview rooms. Pure HTML/CSS/JS, runs 100% in the browser.
+</div>
