@@ -1,0 +1,195 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>ResumeRooms – ATS score, fixes, study and mock interviews</title>
+<style>
+:root{color-scheme:light dark;--bg:#f2f6fc;--bg2:#dfe9f7;--tx:#0b1b36;--mu:#4a5d7a;--pn:rgba(255,255,255,.78);--ln:rgba(30,90,200,.25);--acc:#2563eb;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#030812;--bg2:#08162e;--tx:#eaf2ff;--mu:#8ea6c9;--pn:rgba(12,28,56,.72);--ln:rgba(90,162,255,.24);--acc:#3b82ff}}
+:root[data-theme=dark]{--bg:#030812;--bg2:#08162e;--tx:#eaf2ff;--mu:#8ea6c9;--pn:rgba(12,28,56,.72);--ln:rgba(90,162,255,.24);--acc:#3b82ff}
+html{scroll-behavior:smooth;scroll-padding-top:calc(70px + env(safe-area-inset-top,0px))}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--bg)}
+a{color:inherit}h1,h2,h3{line-height:1.1;margin:0}
+header{position:fixed;top:0;left:0;right:0;z-index:50;padding:calc(12px + env(safe-area-inset-top,0px)) 5% 12px;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(var(--bg),transparent);backdrop-filter:blur(8px)}
+.lg{font-weight:700;text-decoration:none;display:flex;gap:8px;align-items:center}.lg i{width:16px;height:16px;border:2px solid var(--acc);box-shadow:0 0 12px var(--acc)}
+nav{display:flex;gap:18px;font-size:14px}nav a{text-decoration:none;color:var(--mu);transition:.3s}nav a.on,nav a:hover{color:var(--tx)}
+@media(max-width:700px){nav a:not(.on){display:none}}
+section{position:relative;padding:110px 5% 70px;max-width:1150px;margin:auto}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;max-width:none;overflow:hidden;text-align:center;align-items:center}
+.hero>*{position:relative;z-index:2}.hero h1{font-size:clamp(38px,7vw,84px);max-width:900px;letter-spacing:-.03em}.hero p{color:var(--mu);max-width:600px;font-size:18px}
+.terr{position:absolute;left:-10%;right:-10%;bottom:-5%;height:55%;background:radial-gradient(ellipse at 50% 100%,var(--bg2),transparent 70%),repeating-linear-gradient(90deg,var(--ln) 0 1px,transparent 1px 60px);transform:perspective(500px) rotateX(60deg);transform-origin:bottom;z-index:0}
+.glow{position:absolute;width:min(34vw,260px);aspect-ratio:1;border:2px solid var(--acc);box-shadow:0 0 60px var(--acc),inset 0 0 50px var(--acc);top:14%;left:50%;margin-left:calc(min(34vw,260px)/-2);animation:fl 6s ease-in-out infinite;opacity:.55;z-index:1}
+@keyframes fl{50%{translate:0 -22px;rotate:4deg}}
+.btn{display:inline-block;padding:13px 26px;border-radius:99px;border:1px solid var(--acc);background:var(--acc);color:#fff;font-weight:600;cursor:pointer;text-decoration:none;font-size:15px;transition:.25s}.btn:hover{box-shadow:0 0 28px var(--acc);transform:translateY(-2px)}.btn.g{background:transparent;color:var(--tx)}
+.row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:26px}
+.mq{overflow:hidden;white-space:nowrap;border-block:1px solid var(--ln);padding:14px 0;color:var(--mu)}.mq div{display:inline-block;animation:mq 30s linear infinite}.mq span{margin:0 28px}@keyframes mq{to{transform:translateX(-50%)}}
+.tag{color:var(--acc);font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:700}
+h2{font-size:clamp(28px,4.5vw,50px);margin:8px 0 10px;letter-spacing:-.02em}.sub{color:var(--mu);max-width:640px}
+.scene{height:210px;perspective:700px;position:relative;margin:22px 0;overflow:hidden;border-radius:18px;border:1px solid var(--ln);background:linear-gradient(var(--bg2),var(--bg))}
+.tilt{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .25s}
+.floor{position:absolute;left:-30%;right:-30%;bottom:-50%;height:90%;background:repeating-linear-gradient(90deg,var(--ln) 0 1px,transparent 1px 50px),repeating-linear-gradient(0deg,var(--ln) 0 1px,transparent 1px 50px);transform:rotateX(70deg)}
+.sq{position:absolute;left:50%;top:18px;width:150px;height:84px;margin-left:-75px;border:2px solid var(--acc);box-shadow:0 0 30px var(--acc),inset 0 0 24px var(--acc);display:grid;place-items:center;font-size:13px;font-weight:700;text-align:center;transform:translateZ(-60px);padding:4px}
+.prop{position:absolute;bottom:26px;font-size:54px;filter:drop-shadow(0 12px 14px var(--acc))}
+.grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.pn{background:var(--pn);border:1px solid var(--ln);border-radius:18px;padding:22px;backdrop-filter:blur(10px)}
+label{display:block;font-size:13px;color:var(--mu);margin:12px 0 5px}
+select,textarea,input[type=text]{width:100%;background:var(--bg);color:var(--tx);border:1px solid var(--ln);border-radius:10px;padding:10px;font:inherit}textarea{min-height:120px;resize:vertical}
+.drop{display:block;border:1.5px dashed var(--acc);border-radius:14px;padding:18px;text-align:center;cursor:pointer;color:var(--mu)}.drop input{display:none}
+.ring{width:150px;height:150px;position:relative;margin:auto}.ring svg{transform:rotate(-90deg)}.ring b{position:absolute;inset:0;display:grid;place-items:center;font-size:38px}
+.bar{margin:10px 0;font-size:14px}.bar i{display:block;height:7px;border-radius:9px;background:var(--ln);margin-top:4px;overflow:hidden}.bar u{display:block;height:100%;width:0;background:var(--acc);transition:width 1.2s cubic-bezier(.2,.8,.2,1)}
+.chip{display:inline-block;margin:3px;padding:3px 10px;border-radius:99px;border:1px solid var(--ln);font-size:13px}.ok{border-color:#22c55e;color:#22c55e}.no{border-color:#ef4444;color:#ef4444}
+.fx{border-left:4px solid var(--ln);padding:10px 14px;margin:10px 0;background:var(--pn);border-radius:0 12px 12px 0}.fx.high{border-color:#ef4444}.fx.med{border-color:#f59e0b}.fx.low{border-color:#22c55e}.fx b{display:block}.fx span{color:var(--mu);font-size:14px}
+.go{display:inline-block;margin-top:22px;color:var(--acc);font-weight:700;text-decoration:none}
+.rv{opacity:0;transform:translateY(36px);transition:opacity .8s,transform .8s}.rv.in{opacity:1;transform:none}
+#cand{position:fixed;left:0;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:40;width:60px;transition:transform .9s cubic-bezier(.3,.7,.2,1);pointer-events:none}
+.bub{position:absolute;bottom:92px;left:-20px;white-space:nowrap;background:var(--acc);color:#fff;font-size:11px;padding:3px 9px;border-radius:99px}
+.fig{width:60px;height:84px;position:relative;transition:transform .3s}.hd{width:24px;height:24px;border-radius:50%;background:#ffd2a8;margin:0 auto;box-shadow:0 0 0 2px var(--acc)}
+.bd{width:30px;height:36px;margin:2px auto 0;border-radius:9px 9px 3px 3px;background:var(--acc);box-shadow:0 0 16px var(--acc)}
+.fig b{position:absolute;bottom:0;width:8px;height:20px;background:var(--tx);border-radius:4px;left:20px;transform-origin:top}.fig b+b{left:32px}
+#cand.w .fig b{animation:wk .35s infinite alternate}#cand.w .fig b+b{animation-direction:alternate-reverse}#cand.w .fig{animation:bob .35s infinite alternate}
+@keyframes wk{from{rotate:-28deg}to{rotate:28deg}}@keyframes bob{to{translate:0 -4px}}
+.q{font-size:20px;margin:10px 0}.hid{display:none}
+.co button{margin:3px;padding:8px 16px;border-radius:99px;border:1px solid var(--ln);background:var(--pn);color:var(--tx);cursor:pointer}.co button.on{border-color:var(--acc);box-shadow:0 0 14px var(--acc)}
+.rate button{width:42px;height:42px;border-radius:50%;margin:3px;border:1px solid var(--acc);background:none;color:var(--tx);cursor:pointer}
+footer{padding:40px 5% 90px;text-align:center;color:var(--mu);font-size:13px;border-top:1px solid var(--ln)}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style></head><body id="top">
+<header><a class="lg" href="#top"><i></i>ResumeRooms</a><nav><a href="#r1">ATS Lab</a><a href="#r2">Suggestions</a><a href="#r3">Study</a><a href="#r4">Mock Test</a></nav></header>
+<div id="cand" aria-hidden="true"><div class="bub" id="bub">Lobby</div><div class="fig"><div class="hd"></div><div class="bd"></div><b></b><b></b></div></div>
+
+<section class="hero"><div class="glow" data-p="-.1"></div><div class="terr"></div>
+<span class="tag">Resume → Offer, room by room</span>
+<h1>Walk your resume through the hiring process.</h1>
+<p>Upload once. A recruiter, a tech manager, HR and an ATS each score it. Then walk into the suggestion, study and mock-interview rooms.</p>
+<div class="row"><a class="btn" href="#r1">Enter the ATS Lab</a><a class="btn g" href="#r4">Skip to mock room</a></div></section>
+<div class="mq"><div id="mq"></div></div>
+
+<section id="r1" data-n="ATS Lab"><span class="tag">Room 01</span><h2>ATS Lab</h2><p class="sub">Pick a role, optionally paste a job description, drop your resume. Everything runs in your browser; nothing is uploaded.</p>
+<div class="scene" data-t="ATS Lab" data-e="📄,🖥️,🔍"></div>
+<div class="grid"><div class="pn rv"><label>Target role</label><select id="role"></select>
+<label>Job description (optional, improves keyword match)</label><textarea id="jd" placeholder="Paste the JD here…"></textarea>
+<label>Resume</label><label class="drop"><input type="file" id="f" accept=".pdf,.docx,.txt,.md"><span id="fn">Choose a PDF, DOCX or TXT file</span></label>
+<label>…or paste resume text</label><textarea id="t" placeholder="Paste your resume text"></textarea>
+<div class="row" style="justify-content:flex-start"><button class="btn" id="scan">Scan resume</button></div><div id="msg" class="sub"></div></div>
+<div class="pn rv" id="res"><div class="sub">Your scorecard appears here. Four reviewers score you separately, because a recruiter, a hiring manager, HR and an ATS each look for different things.</div></div></div>
+<a class="go" href="#r2">Walk to the Suggestion Room →</a></section>
+
+<section id="r2" data-n="Suggestion Room"><span class="tag">Room 02</span><h2>Suggestion Room</h2><p class="sub">Prioritised fixes: contact details, keywords, structure, wording and STAR impact.</p>
+<div class="scene" data-t="Suggestions" data-e="✍️,🗂️,💡"></div>
+<div class="grid"><div class="rv" id="fixes"><div class="pn sub">Scan a resume in the ATS Lab first.</div></div>
+<div class="pn rv"><h3>STAR bullet pattern</h3><p class="sub">Illustrative example, not your data:</p>
+<div class="fx high"><b>Before</b><span>Responsible for sales reports.</span></div>
+<div class="fx low"><b>After</b><span>Built a weekly Power BI sales dashboard (Action) for a 12-person team (Situation/Task), cutting reporting time by 40% (Result).</span></div>
+<p class="sub">Formula: strong verb + what you did + tool + measurable result. Only claim numbers you can defend in an interview.</p></div></div>
+<a class="go" href="#r3">Walk to the Study Room →</a></section>
+
+<section id="r3" data-n="Study Room"><span class="tag">Room 03</span><h2>Study Room</h2><p class="sub">Topics come from the keywords your resume is missing (or the role’s core list). Official docs plus a YouTube search for each; pick videos by recent upload date and view count.</p>
+<div class="scene" data-t="Study" data-e="📚,🎓,🧠"></div><div class="grid" id="study"></div>
+<a class="go" href="#r4">Walk to the Mock Test Room →</a></section>
+
+<section id="r4" data-n="Mock Test Room"><span class="tag">Room 04</span><h2>Mock Test Room</h2><p class="sub">Choose the company office you want to practise in. Questions mix resume deep-dives, technical, behavioural and company-style themes.</p>
+<div class="scene" id="s4" data-t="Nvidia" data-e="🏢,💬,⏱️"></div>
+<div class="co" id="co"></div>
+<div class="grid"><div class="pn rv" id="qa"><button class="btn" id="start">Start mock interview</button></div>
+<div class="pn rv"><h3>Real candidate reports</h3><p class="sub">I can’t scrape Glassdoor or Reddit from a static page, and the questions here are my own, written around commonly discussed themes. For real reports:</p><div id="lk"></div></div></div></section>
+<footer>Scores are heuristics (keywords, structure, wording), not a real vendor ATS; every ATS parses differently. Resume text stays in your browser.</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)],enc=encodeURIComponent,RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const ROLES={ml:{n:'AI / ML Engineer',t:1,k:'python,machine learning,deep learning,pytorch,tensorflow,scikit-learn,pandas,numpy,sql,nlp,mlops,docker,git,statistics,feature engineering,model evaluation'},
+data:{n:'Data Analyst',t:1,k:'python,sql,excel,power bi,tableau,pandas,statistics,etl,dashboard,visualization,data cleaning,a/b testing,git'},
+cyber:{n:'Cybersecurity / SOC',t:1,k:'siem,soc,incident response,threat,vulnerability,mitre att&ck,splunk,firewall,network,owasp,malware,log analysis,edr,linux,python'},
+cloud:{n:'Cloud / DevOps',t:1,k:'aws,azure,gcp,docker,kubernetes,terraform,ci/cd,linux,networking,iam,monitoring,python,git,serverless'},
+swe:{n:'Software Engineer',t:1,k:'java,python,data structures,algorithms,sql,rest api,git,oop,spring,testing,docker,agile,microservices'},
+hr:{n:'HR / Recruitment',t:0,k:'recruitment,onboarding,payroll,hris,employee engagement,screening,excel,communication,compliance,sourcing,interview'}};
+for(const k in ROLES)ROLES[k].k=ROLES[k].k.split(',');
+const STOP=new Set('the and for with that this from are was were have has had you your our their will can all any but not use used using into over about also more such than then them they who what when where which while able etc per via experience years work team strong skills ability knowledge good required preferred role job candidate responsibilities including understanding looking join working'.split(' '));
+const words=t=>t.toLowerCase().match(/[a-z][a-z+#.\/&-]{1,}/g)||[];
+const D={pytorch:['https://pytorch.org/docs/stable/index.html','Tensors, autograd, nn.Module, training loops, DataLoader, moving work to GPU.'],tensorflow:['https://www.tensorflow.org/learn','Keras layers, tf.data pipelines, training and evaluation, SavedModel export.'],'scikit-learn':['https://scikit-learn.org/stable/user_guide.html','Pipelines, train/test split, cross-validation, metrics, overfitting.'],pandas:['https://pandas.pydata.org/docs/user_guide/index.html','DataFrames, groupby, merge, missing values, vectorised operations.'],python:['https://docs.python.org/3/tutorial/','Data types, comprehensions, OOP, generators, virtual environments, testing.'],sql:['https://www.postgresql.org/docs/current/tutorial.html','JOINs, GROUP BY, window functions, indexes, reading query plans.'],docker:['https://docs.docker.com/get-started/','Image vs container, Dockerfile layers, volumes, networking, compose.'],kubernetes:['https://kubernetes.io/docs/tutorials/kubernetes-basics/','Pods, Deployments, Services, config, scaling, rollouts.'],aws:['https://docs.aws.amazon.com/','IAM, EC2, S3, VPC, Lambda, CloudWatch; build one 3-tier app.'],git:['https://git-scm.com/doc','Branching, merge vs rebase, pull-request flow, conflict resolution.'],'mitre att&ck':['https://attack.mitre.org/','Map tactics and techniques to detections and incident reports.'],owasp:['https://owasp.org/www-project-top-ten/','Injection, broken auth, XSS, misconfiguration: how each is found and fixed.'],terraform:['https://developer.hashicorp.com/terraform/docs','Providers, state, modules, plan/apply workflow.'],cuda:['https://docs.nvidia.com/cuda/','Threads, blocks, memory hierarchy, kernels, profiling.']};
+const Q={ml:[['Explain bias–variance and how you would diagnose overfitting.','Train/validation gap, regularisation, more data, simpler model, cross-validation.'],['Precision vs recall: which do you optimise for fraud detection, and why?','Cost of false negatives, threshold choice, PR curve.'],['How do you take a model from notebook to production?','Packaging, API, versioning, monitoring, drift, rollback.']],
+data:[['Write SQL for the second-highest salary in each department.','Window functions (DENSE_RANK) or subquery; handle ties.'],['Sales dropped 10% last week. How do you investigate?','Segment, seasonality, data quality, funnel steps, hypotheses.'],['When is a median better than a mean?','Skew and outliers; income example.']],
+cyber:[['Walk me through triaging a phishing alert.','Headers, URLs/attachments in a sandbox, scope of recipients, contain, document.'],['IDS vs IPS vs EDR?','Detect vs block, network vs endpoint, example tools.'],['Map a ransomware incident to the CIA triad.','Which of confidentiality, integrity, availability is hit, and containment steps.']],
+cloud:[['Design a highly available web app on AWS.','Multi-AZ, load balancer, autoscaling, managed DB, least-privilege IAM.'],['Containers vs VMs: when do you choose each?','Isolation, startup time, density, operational overhead.'],['How would you cut a surprising cloud bill?','Tagging, rightsizing, idle resources, savings plans, budget alerts.']],
+swe:[['Explain HashMap internals and collisions.','Hashing, buckets, resize, treeification, equals/hashCode contract.'],['Design a REST API for a to-do app.','Resources, verbs, status codes, pagination, auth, idempotency.'],['How do you debug a production bug you can’t reproduce?','Logs, metrics, bisecting, feature flags, testing a hypothesis.']],
+hr:[['How do you screen 200 applications for one role?','Must-haves, scorecard, ATS filters, structured calls, bias checks.'],['Two team members are in conflict. What do you do?','Listen separately, facts vs feelings, policy, follow-up.'],['Which HR metrics matter most?','Time-to-hire, attrition, quality of hire, engagement, tied to business goals.']]};
+const BH=[['Tell me about yourself in 90 seconds.','Present → past → future; end with why this role.'],['Describe a failure and what you changed afterwards.','Own it, one specific lesson, visible change in behaviour.'],['Why this company?','A specific product or mission plus how your skills map to it.']];
+const CQ={Nvidia:[['How does a GPU differ from a CPU, and when does parallelism stop helping?','Many simple cores, memory bandwidth vs compute, Amdahl’s law.'],['How would you speed up a slow PyTorch training loop?','Profile first; data loading, mixed precision, batch size, GPU utilisation.']],
+Google:[['Design a URL shortener. Where does it break at 100x scale?','Requirements, key generation, storage, cache, sharding, failure modes.'],['Longest subarray with sum k: talk through the approach before coding.','Brute force → prefix sums + hash map; complexity; edge cases.']],
+Amazon:[['Tell me about a time you disagreed and still committed.','STAR, ownership, data over ego (Leadership Principles style).'],['Describe delivering under a tight deadline.','Scope trade-offs, communication, measurable result.']],
+Microsoft:[['How would you test a login page?','Functional, security, performance, accessibility; prioritise by risk.']],
+'TCS / Infosys':[['Explain the OOP pillars with a real example.','Encapsulation, inheritance, polymorphism, abstraction in one concrete class.'],['Why should we hire you over other freshers?','Evidence: a project, a skill, how fast you learn.']]};
+const CO={Nvidia:'#76b900',Google:'#4285f4',Amazon:'#ff9900',Microsoft:'#00a4ef','TCS / Infosys':'#e4572e',Other:'#5aa2ff'};
+const R={role:'ml',co:'Nvidia'};let A=null;
+$('#mq').innerHTML=('<span>AI / ML</span><span>Data Analyst</span><span>Cybersecurity</span><span>Cloud</span><span>Software</span><span>HR</span><span>Nvidia</span><span>Google</span><span>Amazon</span><span>Microsoft</span>').repeat(4);
+$('#role').innerHTML=Object.keys(ROLES).map(k=>`<option value="${k}">${ROLES[k].n}</option>`).join('');
+// scenes
+$$('.scene').forEach(s=>{const e=s.dataset.e.split(',');s.innerHTML=`<div class="tilt"><div class="floor"></div><div class="sq">${s.dataset.t}</div>${e.map((x,i)=>`<div class="prop" data-z="${20+i*40}" style="left:${14+i*30}%;transform:translateZ(${20+i*40}px)">${x}</div>`).join('')}</div>`;
+if(!RM)s.onmousemove=ev=>{const r=s.getBoundingClientRect(),x=(ev.clientX-r.left)/r.width-.5,y=(ev.clientY-r.top)/r.height-.5;s.firstChild.style.transform=`rotateY(${x*14}deg) rotateX(${-y*8}deg)`};s.onmouseleave=()=>s.firstChild.style.transform=''});
+// file
+$('#f').onchange=async e=>{const f=e.target.files[0];if(!f)return;$('#fn').textContent=f.name;
+try{if(/\.doc$/i.test(f.name))throw new Error('old .doc format, please save as DOCX or PDF');if(/\.docx$/i.test(f.name)){if(!window.mammoth)throw new Error('DOCX reader failed to load');$('#t').value=(await mammoth.extractRawText({arrayBuffer:await f.arrayBuffer()})).value}else if(/\.pdf$/i.test(f.name)){if(!window.pdfjsLib)throw new Error('PDF reader failed to load');pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+const d=await pdfjsLib.getDocument({data:await f.arrayBuffer()}).promise;let s='';for(let i=1;i<=d.numPages;i++){const c=await(await d.getPage(i)).getTextContent();let y=null;c.items.forEach(it=>{const yy=it.transform[5];s+=(y!==null&&Math.abs(yy-y)>3?'\n':' ')+it.str;y=yy});s+='\n'}$('#t').value=s}else $('#t').value=await f.text()}
+catch(x){$('#fn').textContent='Couldn’t read '+f.name+' ('+(x&&x.message||x)+'). Please paste the text below.'}};
+// analysis
+function analyze(t,jd,rk){const low=t.toLowerCase(),ro=ROLES[rk],L=t.split(/\n/).map(s=>s.trim()).filter(Boolean),F=[],fx=(sev,a,b)=>F.push({sev,a,b});let K=ro.k;
+if(jd.trim()){const f={};words(jd).filter(w=>w.length>3&&!STOP.has(w)).forEach(w=>f[w]=(f[w]||0)+1);K=[...new Set([...Object.keys(f).sort((a,b)=>f[b]-f[a]).slice(0,12),...ro.k.slice(0,6)])]}
+const H=K.filter(k=>low.includes(k)),M=K.filter(k=>!low.includes(k)),wc=words(t).length;
+const em=/[\w.+-]+@[\w-]+\.[\w.-]+/.test(t),ph=/\+?\d[\d\s().-]{8,}\d/.test(t),li=/linkedin\.com\/in\//i.test(t),gh=/github\.(com|io)/i.test(t);
+const SR={summary:/^(professional |career )?(summary|objective|profile)/i,skills:/^(technical )?skills|^technologies/i,exp:/^(work |professional )?(experience|internships?|employment)/i,proj:/^projects?/i,edu:/^education|^academic/i},S={};
+L.forEach((l,i)=>{if(l.length<40)for(const k in SR)if(S[k]==null&&SR[k].test(l))S[k]=i});const sc=Object.keys(S).length;
+const B=L.filter(l=>l.length>35&&!/@/.test(l)),VB=/^[-•*▪●\s]*(built|developed|designed|led|implemented|reduced|increased|automated|created|analy[sz]ed|managed|optimi[sz]ed|deployed|delivered|improved|launched|conducted|trained|coordinated|achieved|streamlined|migrated|engineered|resolved|mentored)/i;
+const vb=B.filter(l=>VB.test(l)).length,mt=B.filter(l=>/\d+\s?%|\d+\+|[$₹]\s?\d|\b\d{2,}\b/.test(l)).length,wk=(t.match(/responsible for|worked on|helped|assisted|duties/gi)||[]).length,nb=Math.max(B.length,1);
+const star=Math.min(100,Math.round(50*(vb+mt)/nb));
+const fq={};words(t).filter(w=>w.length>4&&!STOP.has(w)&&!K.includes(w)).forEach(w=>fq[w]=(fq[w]||0)+1);const rp=Object.keys(fq).filter(w=>fq[w]>=5).slice(0,5);
+const st={};B.forEach(l=>{const w=(l.replace(/^[-•*▪●\s]+/,'').split(/\s/)[0]||'').toLowerCase();if(w)st[w]=(st[w]||0)+1});const rs=Object.keys(st).filter(w=>st[w]>=3&&w.length>2).slice(0,3);
+const gm=[];(t.match(/\b(\w+)\s+\1\b/gi)||[]).slice(0,3).forEach(x=>gm.push('Doubled word “'+x+'”'));if(/\bi\s(am|have|was|worked)/.test(t))gm.push('Lowercase “i” used as a pronoun');
+(t.match(/\b(teh|recieve|managment|experiance|responsibilty|sucess|enviroment|seperate|definately|knowlege|developement)\b/gi)||[]).forEach(x=>gm.push('Likely typo “'+x+'”'));if(/ {3,}/.test(t))gm.push('Irregular spacing can break ATS column parsing');
+if(!em)fx('high','Email address not found','Put a professional email in the first lines, as plain text.');if(!ph)fx('high','Phone number not found','Add a number with country code, e.g. +91 98xxxxxx10.');
+if(!li)fx('med','LinkedIn URL missing','Add linkedin.com/in/your-handle in the header.');if(ro.t&&!gh)fx('high','GitHub or portfolio link missing','Technical recruiters open this first. Pin 2–3 projects with READMEs.');
+if(M.length)fx('high',M.length+' keywords missing','Missing: '+M.slice(0,8).join(', ')+'. Add only skills you truly have, inside bullets with context, not just a skills list.');
+const mis=Object.keys(SR).filter(k=>S[k]==null);if(mis.length)fx('med','Standard sections not detected','Missing or unusual headings: '+mis.join(', ')+'. ATS parsers key on plain headings like Skills and Experience.');
+const pos=['summary','skills','exp','proj','edu'].filter(k=>S[k]!=null).map(k=>S[k]);if(pos.some((p,i)=>i&&p<pos[i-1]))fx('low','Section order looks unusual','Typical order: Summary → Skills → Experience → Projects → Education (freshers may lead with Education or Projects).');
+if(wk)fx('med','Weak phrases ('+wk+')','Replace “responsible for / worked on / helped” with a strong verb plus a result.');
+if(mt/nb<.4)fx('high','Few quantified results','Only '+mt+' of '+B.length+' bullet-like lines carry numbers. Add %, counts, time saved or money.');
+if(star<50)fx('med','Bullets don’t follow STAR yet','Aim for verb + action + tool + result in each bullet; see the pattern on the right.');
+if(rp.length)fx('low','Repeated words','Overused: '+rp.join(', ')+'. Vary wording or merge bullets.');if(rs.length)fx('low','Repeated bullet openers','Many bullets start with: '+rs.join(', ')+'.');
+gm.forEach(g=>fx('med','Wording / grammar',g));if(wc<250)fx('med','Resume looks thin ('+wc+' words)','Aim for roughly 350–700 words for a fresher, one page.');if(wc>900)fx('low','Resume is long ('+wc+' words)','Trim to the most relevant 1–2 pages.');
+const c=x=>Math.max(0,Math.min(100,Math.round(x))),kr=K.length?H.length/K.length:0;
+const ats=c(kr*60+sc/5*25+(em&&ph?15:em||ph?7:0)),rec=c((em?8:0)+(ph?8:0)+(li?9:0)+(S.summary!=null?15:0)+Math.min(30,mt/nb*60)+(wc>=250&&wc<=800?15:5)+vb/nb*15),
+mgr=c(kr*40+(ro.t?(gh?15:0)+(S.proj!=null?15:0):30)+Math.min(20,mt*3)+(S.skills!=null?15:0)),hr=c(sc/5*35+Math.max(0,35-gm.length*7-rp.length*4-rs.length*3)+(em&&ph?15:5)+(wc>=250&&wc<=900?15:5));
+return{H,M,K,F,tot:c(.35*ats+.2*rec+.25*mgr+.2*hr),P:[['ATS parser',ats],['Technical recruiter',rec],['Hiring manager',mgr],['HR',hr]]}}
+$('#scan').onclick=()=>{const t=$('#t').value;R.role=$('#role').value;if(t.trim().length<80){$('#msg').textContent='Please add your resume (at least a few lines).';return}
+$('#msg').textContent='';A=analyze(t,$('#jd').value,R.role);const v=A.tot>=80?'Strong':A.tot>=60?'Needs polish':'Needs rework';
+$('#res').innerHTML=`<div class="ring"><svg viewBox="0 0 120 120" width="150" height="150"><circle cx="60" cy="60" r="52" fill="none" stroke="var(--ln)" stroke-width="9"/><circle id="arc" cx="60" cy="60" r="52" fill="none" stroke="var(--acc)" stroke-width="9" stroke-linecap="round" stroke-dasharray="327" stroke-dashoffset="327" style="transition:stroke-dashoffset 1.4s;filter:drop-shadow(0 0 6px var(--acc))"/></svg><b id="num">0</b></div>
+<p style="text-align:center"><b>${v}</b> for ${ROLES[R.role].n}</p>${A.P.map(p=>`<div class="bar">${p[0]} · ${p[1]}<i><u data-w="${p[1]}"></u></i></div>`).join('')}
+<div>${A.H.map(k=>`<span class="chip ok">✓ ${k}</span>`).join('')}${A.M.map(k=>`<span class="chip no">✗ ${k}</span>`).join('')}</div>`;
+requestAnimationFrame(()=>{$('#arc').style.strokeDashoffset=327*(1-A.tot/100);$$('.bar u').forEach(u=>u.style.width=u.dataset.w+'%');let n=0;const iv=setInterval(()=>{n+=2;$('#num').textContent=Math.min(n,A.tot);if(n>=A.tot)clearInterval(iv)},18)});
+$('#fixes').innerHTML=A.F.length?A.F.sort((a,b)=>'high med low'.indexOf(a.sev)-'high med low'.indexOf(b.sev)).map(f=>`<div class="fx ${f.sev}"><b>${f.a}</b><span>${f.b}</span></div>`).join(''):'<div class="pn">No major issues found. Nice.</div>';
+study();mockReset();setTimeout(()=>$('#r2').scrollIntoView(),1800)};
+// study
+function study(){const T=(A&&A.M.length?A.M:ROLES[R.role].k).slice(0,6);$('#study').innerHTML=T.map(k=>{const d=D[k]||['https://www.google.com/search?q='+enc(k+' official documentation'),'Read the official quick-start, build one small project with it, then explain it aloud in 2 minutes.'];
+return`<div class="pn rv in"><h3>${k}</h3><p class="sub">${d[1]}</p><a class="chip" target="_blank" rel="noopener" href="${d[0]}">Official docs ↗</a><a class="chip" target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=${enc(k+' tutorial for beginners')}">YouTube ↗</a><a class="chip" target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=${enc(k+' interview questions')}">Interview prep ↗</a></div>`}).join('')}
+$('#role').onchange=()=>{R.role=$('#role').value;study();mockReset()};
+// mock
+let qi=0,qs=[],sc=[],tm;
+$('#co').innerHTML=Object.keys(CO).map(c=>`<button data-c="${c}" class="${c==R.co?'on':''}">${c}</button>`).join('');
+function setCo(c){R.co=c;$$('#co button').forEach(b=>b.classList.toggle('on',b.dataset.c==c));$('#r4').style.setProperty('--acc',CO[c]);$('#s4 .sq').textContent=c+' office';links();mockReset()}
+$('#co').onclick=e=>e.target.dataset.c&&setCo(e.target.dataset.c);
+function links(){const q=enc(R.co+' '+ROLES[R.role].n+' interview questions');$('#lk').innerHTML=`<a class="chip" target="_blank" rel="noopener" href="https://www.google.com/search?q=site%3Aglassdoor.com+${q}">Glassdoor via search ↗</a><a class="chip" target="_blank" rel="noopener" href="https://www.reddit.com/search/?q=${q}">Reddit search ↗</a>`}
+function build(){const a=[];(A?A.H.filter(k=>k.length>2):ROLES[R.role].k).slice(0,2).forEach(k=>a.push(['Resume deep-dive','You list “'+k+'”. Where did you use it, what did you decide, and what would you change now?','Name a real project, your specific part, one trade-off, a measurable result.']));
+Q[R.role].forEach(x=>a.push(['Technical',...x]));BH.forEach(x=>a.push(['Behavioural',...x]));(CQ[R.co]||[]).forEach(x=>a.push(['Company style · '+R.co,...x]));return a}
+function mockReset(){clearInterval(tm);$('#qa').innerHTML='<button class="btn" id="start">Start mock interview</button><p class="sub">'+ROLES[R.role].n+' · '+R.co+' office</p>';$('#start').onclick=()=>{qs=build();qi=0;sc=[];show()};links()}
+function show(){clearInterval(tm);if(qi>=qs.length){const a=sc.length?(sc.reduce((x,y)=>x+y,0)/sc.length).toFixed(1):0;$('#qa').innerHTML=`<h3>Round complete: ${a}/5 self-rating</h3><p class="sub">Redo any answer rated 3 or below out loud, using the STAR pattern. Record yourself once.</p><button class="btn" id="start">Try again</button>`;$('#start').onclick=()=>{qi=0;sc=[];show()};return}
+const q=qs[qi];let s=0;$('#qa').innerHTML=`<span class="chip">${q[0]}</span> <span class="sub">Q${qi+1}/${qs.length} · <span id="tm">0:00</span></span><div class="q">${q[1]}</div><textarea placeholder="Type or speak your answer, then compare."></textarea><div class="row" style="justify-content:flex-start"><button class="btn g" id="sh">What a strong answer covers</button></div><div class="fx low hid" id="hn"><b>Strong answer</b><span>${q[2]}</span></div><div class="rate hid" id="rt">Rate yourself: ${[1,2,3,4,5].map(n=>`<button data-n="${n}">${n}</button>`).join('')}</div>`;
+tm=setInterval(()=>{s++;$('#tm').textContent=Math.floor(s/60)+':'+String(s%60).padStart(2,'0')},1000);
+$('#sh').onclick=()=>{$('#hn').classList.remove('hid');$('#rt').classList.remove('hid')};$('#rt').onclick=e=>{if(e.target.dataset.n){sc.push(+e.target.dataset.n);qi++;show()}}}
+// scroll choreography
+const cd=$('#cand'),secs=$$('section[data-n]');let ly=0,tw,tk=0;
+function frame(){tk=0;const y=scrollY,h=document.documentElement.scrollHeight-innerHeight,p=h>0?y/h:0;
+cd.style.transform=`translateX(${8+p*(innerWidth-76)}px)`;cd.firstElementChild.nextElementSibling.style.transform=`scaleX(${y>=ly?1:-1})`;cd.classList.add('w');clearTimeout(tw);tw=setTimeout(()=>cd.classList.remove('w'),170);ly=y;
+let cur='Lobby';secs.forEach(s=>{if(s.getBoundingClientRect().top<innerHeight*.5)cur=s.dataset.n});$('#bub').textContent=cur;$$('nav a').forEach(a=>a.classList.toggle('on',a.textContent==cur||(cur=='Suggestion Room'&&a.textContent=='Suggestions')||(cur=='Mock Test Room'&&a.textContent=='Mock Test')));
+if(!RM)$$('[data-p]').forEach(e=>e.style.translate='0 '+(y*e.dataset.p)+'px')}
+addEventListener('scroll',()=>{if(!tk)tk=requestAnimationFrame(frame)},{passive:true});addEventListener('resize',frame);
+const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('in')),{threshold:.12});$$('.rv').forEach(e=>io.observe(e));
+study();mockReset();setCo('Nvidia');frame();
+</script></body></html>
